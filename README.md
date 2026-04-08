@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Premium Interactive Calendar
 
-## Getting Started
+A highly physical, hyper-realistic interactive web calendar component built with Next.js, React, and Tailwind CSS.
 
-First, run the development server:
+## Features & Innovations
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1.  **Thematic Synesthesia Engine:** The calendar algorithmically swaps high-resolution hero imagery and UI color palettes (across highlights, geometric swooshes, and grid text) based on the active month, crossfading seamlessly.
+2.  **3D Physical Lighting & Shadows:** The component wrapper acts as a physical wall-mounted object inside a simulated 3D gallery environment. It includes:
+    *   A massive radial background gradient to establish a top-left light source.
+    *   A triple-layered, physics-based object shadow (Ambient Occlusion, Cast Shadow, Diffusion).
+    *   Hyper-realistic metallic twin-loop wire bindings computing correct specular highlights.
+3.  **Hardware-Accelerated Page Tear:** Bypassing standard "snap" state changes in favor of a 400ms CSS 3D keyframe animation that tangibly rips the previous month away downwards on the Z-axis.
+4.  **Contextual Micro-Journal Nodes:** Typings captured in the Notes section actively trigger a glowing telemetry dot on the grid's selected date, turning the visual matrix into a spatial journal map.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architectural Choices
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+*   **HTML Compositing > CSS Masks:** Instead of using messy `clip-path` properties for the angled hero image (which destroys responsive typography boundaries), we heavily utilized CSS absolute stacking properties to layer complex SVG bezier shapes.
+*   **Decoupled Logic:** `date-fns` completely engines the temporal mathematics (leap years, padding bounds, active states). The `DateGrid` strictly acts as a rendering vehicle for `date-fns` boundaries. 
+*   **Absolute Hydration Safety:** The entire visual wrapper mounts behind a `useEffect` hydration block and the Next.js `layout.tsx` specifically suppresses browser-extension tag mutation errors, guaranteeing SSR/CSR identical alignment.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Running the Project Locally
 
-## Learn More
+**Prerequisites:** Ensure you have Node.js 18+ installed.
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/hari715om/tuf-calendar.git
+   cd tuf-calendar
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **View the Application:**
+   Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the calendar simulation running natively.
